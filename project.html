@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Bhai</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calculator {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: inline-block; 
+        }
+
+        .display {
+            width: 100%;
+            height: 60px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 2.2rem;
+            text-align: right;
+            margin-bottom: 20px;
+            padding: 0 10px;
+            outline: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 60px); /* Button width kam kiya */
+            gap: 20px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 15px; /* Thoda chhota */
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .equal {
+            background: linear-gradient(135deg, #9b51e0, #6a11cb);
+        }
+
+        .equal:hover {
+            background: linear-gradient(135deg, #a96eff, #7a21db);
+        }
+
+        .ac {
+            background: #e63946;
+        }
+
+        .ac:hover {
+            background: #ff4f5e;
+        }
+
+        .del {
+            background: #f4a261;
+        }
+
+        .del:hover {
+            background: #ffb471;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="inputBox" class="display" readonly>
+        <div class="buttons">
+            <button class="ac">AC</button>
+            <button class="del">DEL</button>
+            <button>%</button>
+            <button>/</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        let input = document.getElementById("inputBox");
+        let buttons = document.querySelectorAll("button");
+
+        let string = "";
+        let arr = Array.from(buttons);
+
+        arr.forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (e.target.innerHTML === '=') {
+                    try {
+                        string = eval(string);
+                        input.value = string;
+                    } 
+                    catch {
+                        input.value = "Error";
+                        string = "";
+                    }
+                }
+                else if (e.target.innerHTML === 'AC') {
+                    string = "";
+                    input.value = string;
+                }
+                else if (e.target.innerHTML === 'DEL') {
+                    string = string.substring(0, string.length - 1);
+                    input.value = string;
+                }
+                else {
+                    string += e.target.innerHTML;
+                    input.value = string;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
