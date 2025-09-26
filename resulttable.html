@@ -5,88 +5,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Keywords" content="html, css, html tables, table">
-<meta property="og:image" content="https://roshanbind0205-ai.github.io/myrepository/pic/cutebabu.png">
-        <style>
-            table{
-                background-color:forestgreen;
-                width: 500px;
-                height: 400px;
-            }
-        </style>
+    <meta property="og:image" content="https://roshanbind0205-ai.github.io/myrepository/pic/cutebabu.png">
+    <style>
+      body {
+        text-align: center;
+        margin-top: 50px;
+      }
+      table {
+        background-color: forestgreen;
+        width: 400px;
+        height:300px;
+        box-shadow: 0px 0px 25px blue;
+      }
+      .rotate {
+        display: inline-block;
+        animation: swing 2s infinite alternate ease-in-out;
+        font-size: 32px;
+        font-weight: bold;
+        color: blue;
+      }
+      @keyframes swing {
+        0%   { transform: rotate(15deg); }
+        50%  { transform: rotate(-15deg); }
+        100% { transform: rotate(15deg); }
+      }
+      img {
+        width: 150px;
+        margin: 20px 0;
+        height:125px;
+        animation: moveLR 3s infinite alternate ease-in-out;
+      }
 
+      @keyframes moveLR {
+        0%   { transform: translateX(-50px); }
+        50%  { transform: translateX(50px); }
+        100% { transform: translateX(-50px); }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h2>HTML TABLE</h2>
+      <h2 class="rotate">❤️Roshan Bind❤️</h2>
+      <br>
+      <img src="pic/roshan2.png" />
       <center>
-      <table border="10">
-        <thead>
-          <tr>
-            <th style="background-color: red;" >Roll No.</th>
-            <th style="background-color: red;" >Name</th>
-            <th style="background-color: red;" >English</th>
-            <th style="background-color: red;" >Maths</th>
-            <th style="background-color: red;" >Science</th>
-            <th style="background-color: red;" >Computer Science</th>
-            <th style="background-color: red;">Social Studies</th>
-          <tr>  
-        </thead>
-        <tbody>
-          <tr>
-            <td style="background-color: yellow;" >01</td>
-            <td>Ali</td>
-            <td style="background-color: yellow;">86</td>
-            <td>77</td>
-            <td style="background-color: yellow;">87</td>
-            <td >92</td>
-            <td style="background-color: yellow;">95</td>
-          </tr>
-          <tr>
-            <td>02</td>
-            <td style="background-color: yellow;">Salman</td>
-            <td>86</td>
-            <td style="background-color: yellow;">77</td>
-            <td>87</td>
-            <td style="background-color: yellow;">92</td>
-            <td>95</td>
-          </tr>
-          <tr>
-            <td style="background-color: yellow;">03</td>
-            <td>Shan</td>
-            <td style="background-color: yellow;">86</td>
-            <td>77</td>
-            <td style="background-color: yellow;">87</td>
-            <td>92</td>
-            <td style="background-color: yellow;">95</td>
-          </tr>
-          <tr>
-            <td>04</td>
-            <td style="background-color: yellow;">Aliyan</td>
-            <td>86</td>
-            <td style="background-color: yellow;">77</td>
-            <td>87</td>
-            <td style="background-color: yellow;">92</td>
-            <td>95</td>
-          </tr>
-          <tr>
-            <td style="background-color: yellow;">05</td>
-            <td>Zeeshan</td>
-            <td style="background-color: yellow;">86</td>
-            <td>77</td>
-            <td style="background-color: yellow;">87</td>
-            <td>92</td>
-            <td style="background-color: yellow;">95</td>
-          </tr>
-        </tbody>
-        <!-- footer 
-        <tfoot>
-          <tr>
-            <td colspan=3>Maximum Marks: </td>
-            <td colspan=3>Marks Obtained: </td>
-            <td colspan=2>Grade: </td>
-          </tr>
-        </tfoot> footer ends-->
-      </table>
+        <table border="5">
+          <thead>
+            <tr>
+              <th style="background-color: red;">Roll No.</th>
+              <th style="background-color: red;">Name</th>
+              <th style="background-color: red;">English</th>
+              <th style="background-color: red;">Maths</th>
+              <th style="background-color: red;">Science</th>
+              <th style="background-color: red;">Computer Science</th>
+              <th style="background-color: red;">Social Studies</th>
+            <tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background-color: yellow;">01</td>
+              <td>Ali</td>
+              <td style="background-color: yellow;">86</td>
+              <td>77</td>
+              <td style="background-color: yellow;">87</td>
+              <td>92</td>
+              <td style="background-color: yellow;">95</td>
+            </tr>
+            <tr>
+              <td>02</td>
+              <td style="background-color: yellow;">Salman</td>
+              <td>86</td>
+              <td style="background-color: yellow;">77</td>
+              <td>87</td>
+              <td style="background-color: yellow;">92</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td style="background-color: yellow;">03</td>
+              <td>Shan</td>
+              <td style="background-color: yellow;">86</td>
+              <td>77</td>
+              <td style="background-color: red;">87</td>
+              <td>92</td>
+              <td style="background-color: yellow;">95</td>
+            </tr>
+            <tr>
+              <td>04</td>
+              <td style="background-color: yellow;">Aliyan</td>
+              <td>86</td>
+              <td style="background-color: yellow;">77</td>
+              <td>87</td>
+              <td style="background-color: yellow;">92</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td style="background-color: yellow;">05</td>
+              <td>Zeeshan</td>
+              <td style="background-color: yellow;">86</td>
+              <td>77</td>
+              <td style="background-color: yellow;">87</td>
+              <td>92</td>
+              <td style="background-color: yellow;">95</td>
+            </tr>
+          </tbody>
+        </table>
       </center>
     </div>
   </body>
