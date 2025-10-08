@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page2</title>
+    <style>
+        body {
+            background-color: yellow;
+        }
+
+        .smallthan600 {
+            display: none;
+        }
+
+        .bigthan600 {
+            display: block;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                background-color: lightblue;
+            }
+            .smallthan600{
+                display: block;
+            }
+            .bigthan600{
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="bigthan600">600 and big</button>
+    <button class="smallthan600">small than 600</button>
+</body>
+
+</html>
