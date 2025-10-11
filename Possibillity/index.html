@@ -1,11 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roshan Bind - Modern Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top left, #2b1055, #7597de);
+            overflow: hidden;
+        }
+
+        .calculator {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            width: 320px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .display {
+            width: 100%;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            font-size: 2.2rem;
+            text-align: right;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        button {
+            padding: 18px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .equal {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .equal:hover {
+            background: linear-gradient(135deg, #7b2ff7, #4facfe);
+        }
+
+        .ac {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            font-weight: 600;
+        }
+
+        .ac:hover {
+            background: linear-gradient(135deg, #ff5f6d, #ffc371);
+        }
+
+        .del {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #333;
+            font-weight: 600;
+        }
+
+        .del:hover {
+            background: linear-gradient(135deg, #ffb347, #ffcc33);
+        }
+
+        /* Small glow effect around calculator */
+        .calculator::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #6a11cb55, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Footer text */
+        footer {
+            position: absolute;
+            bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
+
 <body>
-    Possibility
+
+    <div class="calculator">
+        <input type="text" id="inputBox" class="display" readonly />
+        <div class="buttons">
+            <button class="ac">AC</button>
+            <button class="del">DEL</button>
+            <button>%</button>
+            <button>/</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equal">=</button>
+        </div>
+    </div>
+
+    <footer>✨ Designed by Roshan Bind ✨</footer>
+
+    <script>
+        let input = document.getElementById("inputBox");
+        let buttons = document.querySelectorAll("button");
+        let string = "";
+        let arr = Array.from(buttons);
+
+        arr.forEach(button => {
+            button.addEventListener("click", (e) => {
+                if (e.target.innerHTML === "=") {
+                    try {
+                        string = eval(string);
+                        input.value = string;
+                    } catch {
+                        input.value = "Error";
+                        string = "";
+                    }
+                } else if (e.target.innerHTML === "AC") {
+                    string = "";
+                    input.value = string;
+                } else if (e.target.innerHTML === "DEL") {
+                    string = string.substring(0, string.length - 1);
+                    input.value = string;
+                } else {
+                    string += e.target.innerHTML;
+                    input.value = string;
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>
