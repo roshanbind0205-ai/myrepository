@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplepage</title>
-    <style>
-        .sticky {
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            left: 10%;
-            top: 10%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Left Sidebar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
+    /* Fixed left sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%; /* full height */
+      background-color: #333;
+      color: white;
+      padding-top: 20px;
+      text-align: center;
+    }
 
-        }
-    </style>
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px;
+      text-decoration: none;
+      
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    /* Main content */
+    .content {
+      margin-left: 240px; /* sidebar ke liye jagah */
+      padding: 20px;
+    }
+  </style>
 </head>
-
 <body>
 
-    <div> Roshan Bind </div>
-    <img src="pic/cutebabu.png" alt="" class="sticky">
+  <div class="sidebar">
+    <h2>🧭 Menu</h2>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="content">
+    <h1>Fixed Left Sidebar</h1>
+    <p>Scroll down to see the sidebar stay fixed on the left side.</p>
+    <p style="margin-bottom: 1000px;">This is your main page content...</p>
+  </div>
 
 </body>
-
 </html>
